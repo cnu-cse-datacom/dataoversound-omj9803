@@ -125,12 +125,12 @@ public class Listentone {
 
     public List<Integer> extract_packet(List<Integer> freqs) {
         ArrayList<Integer> freqs_new = new ArrayList<>();
-
-        // 주파수는 2개씩 들어온다고 생각
+        // 주파수 같은 값이 두개씩 들어오기 때문에 2개 단위로 설정
         for(int i = 0; i < freqs.size(); i += 2){
             freqs_new.add((int)(Math.round((freqs.get(i) -START_HZ)/STEP_HZ)));
         }
         freqs_new.remove(0);
+        // 새로운 배열에 이동
         int[] freqs_new_ = new int[freqs_new.size()];
         for(int i = 0; i < freqs_new.size();i++){
             freqs_new_[i] = freqs_new.get(i);
